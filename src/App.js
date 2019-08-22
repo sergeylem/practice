@@ -1,27 +1,24 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import './App.css';
+
 import HomePage from './pages/homepage/homepage.component';
-import {Switch, Route} from 'react-router-dom';
-
-const HatsPage = (props) => {
-  console.log(props); //for explore history object, match, location  
-  return (
-    <div>
-      <h1>Hats Page</h1>
-    </div>
-  );
-};
-
+import ShopPage from './pages/shop/shop.component.jsx';
+import Header from './components/header/header.component.jsx';
+import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/shop/hats' component={HatsPage} />
+        <Route path='/shop' component={ShopPage} />
+        <Route path='/signin' component={SignInSignUpPage} />
       </Switch>
-          
     </div>
-  )
+  );
 }
 
 export default App;
